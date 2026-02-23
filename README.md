@@ -12,31 +12,6 @@ A comprehensive Indian income tax calculator built with React, featuring tax pla
 - **Form 16 Parser** — Paste or upload Form 16 text to auto-fill all fields
 - **Dark Mode** — Toggle between light and dark themes, persisted across sessions
 
-## Deploy on Vercel
-
-### Option 1: CLI
-```bash
-npm install
-npm run build
-npx vercel --prod
-```
-
-### Option 2: Git
-1. Push this folder to a GitHub/GitLab repo
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import the repo — Vercel auto-detects Create React App
-4. Click **Deploy**
-
-No environment variables or special configuration needed.
-
-## Local Development
-
-```bash
-npm install
-npm start
-```
-
-Opens at [http://localhost:3000](http://localhost:3000).
 
 ## Project Structure
 
