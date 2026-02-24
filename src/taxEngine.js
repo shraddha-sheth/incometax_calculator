@@ -254,11 +254,12 @@ export function generateSuggestions(v, r) {
     });
   }
 
-  s.sort(
-    (a, b) =>
-      { const p = { high: 0, medium: 1, low: 2 }; return p[a.priority] - p[b.priority]; } ||
-      b.potentialSaving - a.potentialSaving
-  );
+  s.sort((a, b) => {
+    const p = { high: 0, medium: 1, low: 2 };
+    const priorityDiff = p[a.priority] - p[b.priority];
+    if (priorityDiff !== 0) return priorityDiff;
+    return b.potentialSaving - a.potentialSaving;
+  });
 
   return s;
 }
