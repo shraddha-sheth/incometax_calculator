@@ -52,8 +52,10 @@ h1 { font-family: 'Crimson Pro', serif; font-size: 2.5rem; font-weight: 700; col
 .header-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; flex-wrap: wrap; }
 .btn-export { padding: 0.6rem 1.2rem; background: var(--card); color: var(--primary); border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.25s; white-space: nowrap; }
 .btn-export:hover { border-color: var(--primary); box-shadow: 0 2px 8px var(--shadow); }
-.theme-toggle { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--toggle-bg); border: none; border-radius: 50%; cursor: pointer; color: var(--toggle-icon); transition: all 0.3s; }
-.theme-toggle:hover { transform: scale(1.1); }
+.theme-toggle { width: 56px; height: 28px; background: var(--toggle-bg); border: 1.5px solid var(--border); border-radius: 14px; cursor: pointer; padding: 2px; display: flex; align-items: center; flex-shrink: 0; transition: background 0.3s, border-color 0.3s; }
+.theme-toggle:hover { border-color: var(--primary); }
+.toggle-thumb { width: 22px; height: 22px; background: var(--card); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); box-shadow: 0 1px 4px var(--shadow); flex-shrink: 0; transform: translateX(0); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), color 0.3s, background 0.3s; }
+[data-theme="dark"] .toggle-thumb { transform: translateX(30px); color: var(--primary); }
 
 /* ─── Tabs ────────────────────────────────────────────────────── */
 .tab-nav { display: flex; gap: 0.25rem; margin-top: 1.5rem; border-bottom: 2px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }

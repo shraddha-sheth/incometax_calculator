@@ -135,7 +135,7 @@ function HRATab({ values }) {
 }
 
 export default function App() {
-  const [dark, setDark] = useState(()=>{try{return localStorage.getItem("tax-calc-theme")==="dark";}catch{return false;}});
+  const [dark, setDark] = useState(()=>{try{const s=localStorage.getItem("tax-calc-theme");if(s)return s==="dark";return window.matchMedia?.("(prefers-color-scheme: dark)").matches||false;}catch{return false;}});
   const [values, setValues] = useState(()=>{
     if(window.location.search.length>1) return decodeValuesFromURL(window.location.search);
     return autoLoad()||{...DEFAULT_VALUES};
@@ -170,7 +170,7 @@ export default function App() {
           <div className="header-actions">
             <button className="btn-export" onClick={handleShare} title="Share">🔗 Share {shareMsg&&<span style={{fontSize:"0.75rem",color:"var(--success)"}}>{shareMsg}</span>}</button>
             <button className="btn-export" onClick={handleExportPDF} title="PDF">📄 PDF</button>
-            <button className="theme-toggle" onClick={()=>setDark(!dark)} title={dark?"Light":"Dark"}>{dark?<SunIcon/>:<MoonIcon/>}</button>
+            <button className="theme-toggle" onClick={()=>setDark(!dark)} title={dark?"Switch to Light Mode":"Switch to Dark Mode"} aria-label="Toggle theme"><span className="toggle-thumb">{dark?<SunIcon/>:<MoonIcon/>}</span></button>
           </div>
         </div>
         <nav className="tab-nav">{tabs.map(t=><button key={t.id} className={`tab-btn ${activeTab===t.id?"active":""}`} onClick={()=>setActiveTab(t.id)}>{t.label}{t.badge&&<span className="tab-badge">{t.badge}</span>}</button>)}</nav>
